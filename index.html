@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Aves Oliveira - Venda de Aves Exóticas, Pavões, Galinhas e Mais</title>
+    <meta name="description" content="Aves Oliveira, sua melhor opção na região de Nepomuceno/MG para aves exóticas, pavões, galinhas d'angola, pintinhos e muito mais. Qualidade e tradição na criação de aves.">
+    <meta name="keywords" content="aves exóticas, pavão, galinha, pintinho, galinha d'angola, ovos galados, Nepomuceno, MG, venda de aves, Aves Oliveira">
+    <meta name="author" content="Aves Oliveira">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/avif" href="logo.avif">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Aves Oliveira - Venda de Aves Exóticas" />
+    <meta property="og:description" content="Especializados na criação e venda de aves exóticas, pavões, galinhas e mais em Nepomuceno/MG." />
+    <meta property="og:image" content="logo.jpg" />
+    <meta property="og:url" content="URL_DO_SEU_SITE_AQUI" />
+    <meta property="og:type" content="website" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper.js (para o carrossel) -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Impede que o corpo da página "pule" quando o menu mobile é aberto/fechado */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #3e2723; /* Brown-darken-4 */
+            overflow-x: hidden; 
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .hero-section {
+            background-image: url('1.webp'); 
+            background-size: cover;
+            background-position: center top; 
+        }
+        
+        @media (min-width: 768px) {
+            .hero-section {
+                background-position: center center; 
+            }
+        }
+
+        /* Garante que os cards de aves tenham a mesma altura */
+        .bird-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%; 
+        }
+        .bird-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .bird-card-text {
+            flex-grow: 1;
+        }
+
+        /* Estilos do Swiper */
+        .swiper-container {
+            width: 100%;
+            padding: 0 24px; 
+            box-sizing: border-box;
+        }
+        .swiper-container-wrapper {
+             position: relative; 
+             padding-bottom: 30px; 
+        }
+        .swiper-wrapper {
+            will-change: transform;
+        }
+        .swiper-slide {
+            height: auto; 
+        }
+        .swiper-pagination-bullet-active {
+            background: #3e2723 !important;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Barra de Navegação -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300">
+        <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <a href="#">
+                <img src="logo.avif" alt="Logo Aves Oliveira" class="h-16 md:h-20 filter drop-shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/80x80/ffffff/3e2723?text=Logo';">
+            </a>
+            <div class="hidden md:flex space-x-8 text-lg text-white">
+                <a href="#nossas-aves" class="hover:text-gray-300 transition duration-300">Nossas Aves</a>
+                <a href="#sobre" class="hover:text-gray-300 transition duration-300">Sobre</a>
+                <a href="#contato" class="hover:text-gray-300 transition duration-300">Contato</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none z-30">
+                    <i id="menu-icon" class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="w-full hidden md:hidden bg-black/80">
+            <a href="#nossas-aves" class="block text-center text-white py-3 hover:bg-white/10 transition duration-300">Nossas Aves</a>
+            <a href="#sobre" class="block text-center text-white py-3 hover:bg-white/10 transition duration-300">Sobre</a>
+            <a href="#contato" class="block text-center text-white py-3 hover:bg-white/10 transition duration-300">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Seção Hero -->
+    <section class="hero-section relative bg-cover text-white h-screen flex justify-center items-end pb-32 md:items-center md:pb-0">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold drop-shadow-2xl">Aves Oliveira</h1>
+            <p class="text-xl md:text-2xl mt-4 drop-shadow-lg">Tradição e qualidade na criação de aves</p>
+        </div>
+    </section>
+
+    <!-- Container Principal para as Seções de Aves -->
+    <div id="nossas-aves">
+        
+        <!-- Seção Aves Exóticas -->
+        <section class="py-16 bg-stone-50">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-stone-800 px-6">Aves Exóticas</h2>
+                <div class="swiper-container-wrapper">
+                    <div class="swiper-container pavoes-swiper md:hidden">
+                        <div class="swiper-wrapper">
+                            <!-- Pavão Azul -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaoazul.avif" alt="Pavão Azul" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Azul';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Azul</h3><p class="text-gray-600 mb-4 bird-card-text">Ave nativa do subcontinente indiano, famosa por sua cauda exuberante.</p><a href="#" onclick="consultarPreco('Pavão Azul')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Pavão Branco -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavao branco.webp" alt="Pavão Branco" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Branco';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Branco</h3><p class="text-gray-600 mb-4 bird-card-text">Ave de origem indiana, a pureza e a elegância em forma de ave.</p><a href="#" onclick="consultarPreco('Pavão Branco')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Pavão Ombros Negros -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavão Ombros Negros.webp" alt="Pavão Ombros Negros" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Ombros+Negros';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Ombros Negros</h3><p class="text-gray-600 mb-4 bird-card-text">Uma variação de cor deslumbrante do pavão azul.</p><a href="#" onclick="consultarPreco('Pavão Ombros Negros')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Pavoa Arlequim -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavoa arlequim.webp" alt="Pavoa Arlequim" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavoa+Arlequim';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavoa Arlequim</h3><p class="text-gray-600 mb-4 bird-card-text">Resultado de cruzamentos seletivos de pavão-azul e pavão-branco.</p><a href="#" onclick="consultarPreco('Pavão Arlequim')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Pavão Verde de Java -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaoverdedejava.avif" alt="Pavão Verde de Java" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Verde+de+Java';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Verde de Java</h3><p class="text-gray-600 mb-4 bird-card-text">Ave nativa do Sudeste Asiático, com plumagem verde-metálica.</p><a href="#" onclick="consultarPreco('Pavão Verde de Java')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Pavão Spalding -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaospalding.avif" alt="Pavão Spalding" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Spalding';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Spalding</h3><p class="text-gray-600 mb-4 bird-card-text">Ave híbrida com beleza e características únicas.</p><a href="#" onclick="consultarPreco('Pavão Spalding')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Faisão Canário -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="faisão canario.webp" alt="Faisão Canário" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Faisão+Canário';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Faisão Canário</h3><p class="text-gray-600 mb-4 bird-card-text">Ave ornamental de porte pequeno e beleza marcante.</p><a href="#" onclick="consultarPreco('Faisão Canário')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <!-- Grid para Desktop -->
+                <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaoazul.avif" alt="Pavão Azul" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Azul';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Azul</h3><p class="text-gray-600 mb-4 bird-card-text">Ave nativa do subcontinente indiano, famosa por sua cauda exuberante.</p><a href="#" onclick="consultarPreco('Pavão Azul')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavao branco.webp" alt="Pavão Branco" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Branco';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Branco</h3><p class="text-gray-600 mb-4 bird-card-text">Ave de origem indiana, a pureza e a elegância em forma de ave.</p><a href="#" onclick="consultarPreco('Pavão Branco')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavão Ombros Negros.webp" alt="Pavão Ombros Negros" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Ombros+Negros';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Ombros Negros</h3><p class="text-gray-600 mb-4 bird-card-text">Uma variação de cor deslumbrante do pavão azul.</p><a href="#" onclick="consultarPreco('Pavão Ombros Negros')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavoa arlequim.webp" alt="Pavoa Arlequim" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavoa+Arlequim';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavoa Arlequim</h3><p class="text-gray-600 mb-4 bird-card-text">Resultado de cruzamentos seletivos de pavão-azul e pavão-branco.</p><a href="#" onclick="consultarPreco('Pavão Arlequim')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaoverdedejava.avif" alt="Pavão Verde de Java" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Verde+de+Java';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Verde de Java</h3><p class="text-gray-600 mb-4 bird-card-text">Ave nativa do Sudeste Asiático, com plumagem verde-metálica.</p><a href="#" onclick="consultarPreco('Pavão Verde de Java')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaospalding.avif" alt="Pavão Spalding" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Spalding';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Spalding</h3><p class="text-gray-600 mb-4 bird-card-text">Ave híbrida com beleza e características únicas.</p><a href="#" onclick="consultarPreco('Pavão Spalding')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="faisão canario.webp" alt="Faisão Canário" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Faisão+Canário';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Faisão Canário</h3><p class="text-gray-600 mb-4 bird-card-text">Ave ornamental de porte pequeno e beleza marcante.</p><a href="#" onclick="consultarPreco('Faisão Canário')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Aquáticos -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-stone-800 px-6">Aquáticos</h2>
+                <div class="swiper-container-wrapper">
+                    <div class="swiper-container aquaticos-swiper md:hidden">
+                        <div class="swiper-wrapper">
+                            <!-- Cisne Negro -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Cisne negro.webp" alt="Cisne Negro" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Cisne+Negro';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Cisne Negro</h3><p class="text-gray-600 mb-4 bird-card-text">Ave aquática australiana de beleza exuberante e alta linhagem.</p><a href="#" onclick="consultarPreco('Cisne Negro')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Ganso Sinaleiro -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="gansosinaleiro.avif" alt="Ganso Sinaleiro" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Ganso+Sinaleiro';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Ganso Sinaleiro</h3><p class="text-gray-600 mb-4 bird-card-text">Uma raça de ganso doméstico originária da China.</p><a href="#" onclick="consultarPreco('Ganso Sinaleiro')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Marreco Carolina -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marreco carolina.webp" alt="Marreco Carolina" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Carolina';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Carolina</h3><p class="text-gray-600 mb-4 bird-card-text">Espécie ornamental de pequeno porte com cores vibrantes.</p><a href="#" onclick="consultarPreco('Marreco Carolina')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Marreco Mandarim -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecomandarim.avif" alt="Marreco Mandarim" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Mandarim';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Mandarim</h3><p class="text-gray-600 mb-4 bird-card-text">É um pato de médio porte com uma plumagem espetacular.</p><a href="#" onclick="consultarPreco('Marreco Mandarim')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Marreco Pompom -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Marrecos pompom.webp" alt="Marrecos Pompom" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Pompom';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Pompom</h3><p class="text-gray-600 mb-4 bird-card-text">Aves dóceis que se destacam pelo charmoso pompom na cabeça.</p><a href="#" onclick="consultarPreco('Marrecos Pompom')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Marreco de Rouen -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecoderouen.avif" alt="Marreco de Rouen" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+de+Rouen';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco de Rouen</h3><p class="text-gray-600 mb-4 bird-card-text">Apreciado por sua beleza e grande porte.</p><a href="#" onclick="consultarPreco('Marreco de Rouen')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Marreco Cayuga -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecocayuga.avif" alt="Marreco Cayuga" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Cayuga';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Cayuga</h3><p class="text-gray-600 mb-4 bird-card-text">Conhecido por sua plumagem escura com reflexos esverdeados.</p><a href="#" onclick="consultarPreco('Marreco Cayuga')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Marreco Mini Cool -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecominicool.avif" alt="Marreco Mini Cool" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Mini+Cool';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Mini Cool</h3><p class="text-gray-600 mb-4 bird-card-text">Conhecida por seu tamanho pequeno e aparência atraente.</p><a href="#" onclick="consultarPreco('Marreco Mini Cool')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Cisne negro.webp" alt="Cisne Negro" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Cisne+Negro';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Cisne Negro</h3><p class="text-gray-600 mb-4 bird-card-text">Ave aquática australiana de beleza exuberante e alta linhagem.</p><a href="#" onclick="consultarPreco('Cisne Negro')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="gansosinaleiro.avif" alt="Ganso Sinaleiro" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Ganso+Sinaleiro';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Ganso Sinaleiro</h3><p class="text-gray-600 mb-4 bird-card-text">Uma raça de ganso doméstico originária da China.</p><a href="#" onclick="consultarPreco('Ganso Sinaleiro')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marreco carolina.webp" alt="Marreco Carolina" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Carolina';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Carolina</h3><p class="text-gray-600 mb-4 bird-card-text">Espécie ornamental de pequeno porte com cores vibrantes.</p><a href="#" onclick="consultarPreco('Marreco Carolina')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecomandarim.avif" alt="Marreco Mandarim" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Mandarim';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Mandarim</h3><p class="text-gray-600 mb-4 bird-card-text">É um pato de médio porte com uma plumagem espetacular.</p><a href="#" onclick="consultarPreco('Marreco Mandarim')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Marrecos pompom.webp" alt="Marrecos Pompom" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Pompom';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Pompom</h3><p class="text-gray-600 mb-4 bird-card-text">Aves dóceis que se destacam pelo charmoso pompom na cabeça.</p><a href="#" onclick="consultarPreco('Marrecos Pompom')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecoderouen.avif" alt="Marreco de Rouen" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+de+Rouen';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco de Rouen</h3><p class="text-gray-600 mb-4 bird-card-text">Apreciado por sua beleza e grande porte.</p><a href="#" onclick="consultarPreco('Marreco de Rouen')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecocayuga.avif" alt="Marreco Cayuga" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Cayuga';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Cayuga</h3><p class="text-gray-600 mb-4 bird-card-text">Conhecido por sua plumagem escura com reflexos esverdeados.</p><a href="#" onclick="consultarPreco('Marreco Cayuga')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="marrecominicool.avif" alt="Marreco Mini Cool" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Marreco+Mini+Cool';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Marreco Mini Cool</h3><p class="text-gray-600 mb-4 bird-card-text">Conhecida por seu tamanho pequeno e aparência atraente.</p><a href="#" onclick="consultarPreco('Marreco Mini Cool')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Galinhas, Perus e Pintinhos -->
+        <section class="py-16 bg-stone-50">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-stone-800 px-6">Galinhas, Perus e Pintinhos</h2>
+                <div class="swiper-container-wrapper">
+                    <div class="swiper-container galinhas-swiper md:hidden">
+                        <div class="swiper-wrapper">
+                            <!-- Galinha Caipira -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinha caipira.webp" alt="Galinha Caipira" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Caipira';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Caipira</h3><p class="text-gray-600 mb-4 bird-card-text">Aves rústicas criadas de forma livre e de alta produtividade.</p><a href="#" onclick="consultarPreco('Galinha Caipira')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Galo Caipira -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galocaipira.avif" alt="Galo Caipira" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galo+Caipira';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galo Caipira</h3><p class="text-gray-600 mb-4 bird-card-text">Reprodutores conhecidos pela sua rusticidade e vigor.</p><a href="#" onclick="consultarPreco('Galo Caipira')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Galinha D'Angola -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinha da angola.webp" alt="Galinha D'Angola" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+D_Angola';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha D'Angola</h3><p class="text-gray-600 mb-4 bird-card-text">Muito usada para o controle de pragas e como animal de guarda.</p><a href="#" onclick="consultarPreco('Galinha D\'Angola')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Galinha Brahma -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pintinho brahma.avif" alt="Pintinho Brahma" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pintinho+Brahma';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Brahma</h3><p class="text-gray-600 mb-4 bird-card-text">Conhecida pelo seu tamanho imponente e beleza. Vendemos pintinhos.</p><a href="#" onclick="consultarPreco('Galinha Brahma')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Galinha Serama -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Galinha Serama.webp" alt="Galinha Serama" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Serama';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Serama</h3><p class="text-gray-600 mb-4 bird-card-text">É uma raça anã originária da Malásia, a menor do mundo.</p><a href="#" onclick="consultarPreco('Galinha Serama')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Galinha Sedosa -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhasedosa.avif" alt="Galinha Sedosa" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Sedosa';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Sedosa</h3><p class="text-gray-600 mb-4 bird-card-text">Se destaca por sua aparência exótica, plumagem única e temperamento dócil.</p><a href="#" onclick="consultarPreco('Galinha Sedosa')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Galinha GSB -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhaGSB.avif" alt="Galinha GSB" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+GSB';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha GSB</h3><p class="text-gray-600 mb-4 bird-card-text">É uma raça rústica, originária do sertão nordestino.</p><a href="#" onclick="consultarPreco('Galinha GSB')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Galinha Mil Flores -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhamilflores.avif" alt="Galinha Mil Flores" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Mil+Flores';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Mil Flores</h3><p class="text-gray-600 mb-4 bird-card-text">Originária da Bélgica, com uma plumagem incrivelmente detalhada.</p><a href="#" onclick="consultarPreco('Galinha Mil Flores')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                            <!-- Peru -->
+                            <div class="swiper-slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Peru Caipira Adulto.webp" alt="Peru" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Peru';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Peru</h3><p class="text-gray-600 mb-4 bird-card-text">Espécie nativa da América do Norte, robusta e criada de forma natural.</p><a href="#" onclick="consultarPreco('Peru')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinha caipira.webp" alt="Galinha Caipira" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Caipira';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Caipira</h3><p class="text-gray-600 mb-4 bird-card-text">Aves rústicas criadas de forma livre e de alta produtividade.</p><a href="#" onclick="consultarPreco('Galinha Caipira')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galocaipira.avif" alt="Galo Caipira" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galo+Caipira';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galo Caipira</h3><p class="text-gray-600 mb-4 bird-card-text">Reprodutores conhecidos pela sua rusticidade e vigor.</p><a href="#" onclick="consultarPreco('Galo Caipira')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinha da angola.webp" alt="Galinha D'Angola" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+D_Angola';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha D'Angola</h3><p class="text-gray-600 mb-4 bird-card-text">Muito usada para o controle de pragas e como animal de guarda.</p><a href="#" onclick="consultarPreco('Galinha D\'Angola')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pintinho brahma.avif" alt="Pintinho Brahma" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pintinho+Brahma';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Brahma</h3><p class="text-gray-600 mb-4 bird-card-text">Conhecida pelo seu tamanho imponente e beleza. Vendemos pintinhos.</p><a href="#" onclick="consultarPreco('Galinha Brahma')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Galinha Serama.webp" alt="Galinha Serama" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Serama';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Serama</h3><p class="text-gray-600 mb-4 bird-card-text">É uma raça anã originária da Malásia, a menor do mundo.</p><a href="#" onclick="consultarPreco('Galinha Serama')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhasedosa.avif" alt="Galinha Sedosa" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Sedosa';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Sedosa</h3><p class="text-gray-600 mb-4 bird-card-text">Se destaca por sua aparência exótica, plumagem única e temperamento dócil.</p><a href="#" onclick="consultarPreco('Galinha Sedosa')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhaGSB.avif" alt="Galinha GSB" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+GSB';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha GSB</h3><p class="text-gray-600 mb-4 bird-card-text">É uma raça rústica, originária do sertão nordestino.</p><a href="#" onclick="consultarPreco('Galinha GSB')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhamilflores.avif" alt="Galinha Mil Flores" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Mil+Flores';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Mil Flores</h3><p class="text-gray-600 mb-4 bird-card-text">Originária da Bélgica, com uma plumagem incrivelmente detalhada.</p><a href="#" onclick="consultarPreco('Galinha Mil Flores')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Peru Caipira Adulto.webp" alt="Peru" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Peru';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Peru</h3><p class="text-gray-600 mb-4 bird-card-text">Espécie nativa da América do Norte, robusta e criada de forma natural.</p><a href="#" onclick="consultarPreco('Peru')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Venda de Ovos e Frangos -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-stone-800 px-6">Venda de Ovos e Frangos</h2>
+                <div class="flex justify-center px-6">
+                    <div class="w-full max-w-sm">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card">
+                            <img src="ovoscaipiras.avif" alt="Ovos Caipiras" class="w-full h-56 object-contain bg-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Ovos+Caipiras';">
+                            <div class="p-6 bird-card-content">
+                                <h3 class="text-xl font-bold mb-2">Ovos Caipiras e Frangos</h3>
+                                <p class="text-gray-600 mb-4 bird-card-text">Oferecemos ovos caipiras frescos e frangos para consumo. Entre em contato para consultar a disponibilidade e fazer sua encomenda.</p>
+                                <a href="#" onclick="consultarPreco('Ovos Caipiras e Frangos')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700">
+                                    <i class="fab fa-whatsapp"></i> Consultar Disponibilidade
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Seção Sobre Nós -->
+    <section id="sobre" class="py-16 bg-stone-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4 text-stone-800">Sobre a Aves Oliveira</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Localizada na Fazenda Sossego, em Nepomuceno/MG, a Aves Oliveira é uma empresa familiar com anos de dedicação à criação de aves. Nossa paixão se reflete na qualidade e saúde de cada animal.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Oferecemos uma variedade de aves, desde as exóticas para ornamentação até as mais robustas para produção e melhoramento genético. Atendemos toda a região com o compromisso de entregar sempre o melhor para nossos clientes.
+                    </p>
+                </div>
+                <!-- Galeria de Imagens Sobre -->
+                <div class="grid grid-cols-2 gap-4" style="min-height: 24rem;"> <!-- min-h-96 -->
+                    <div class="col-span-2">
+                        <img src="placa.webp" alt="Placa da Fazenda Aves Oliveira" class="rounded-lg shadow-xl w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x200/e7e5e4/3e2723?text=Aves+Oliveira';">
+                    </div>
+                    <div>
+                        <img src="f1.avif" alt="Criação de Aves Oliveira" class="rounded-lg shadow-xl w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e7e5e4/3e2723?text=Nossas+Aves+1';">
+                    </div>
+                    <div>
+                        <img src="f2.avif" alt="Criação de Aves Oliveira" class="rounded-lg shadow-xl w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e7e5e4/3e2723?text=Nossas+Aves+2';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contato" class="bg-stone-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+                <!-- Coluna 1: Contato -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold">Entre em Contato</h3>
+                    <a href="https://wa.me/5535999641010" target="_blank" class="flex items-center hover:text-stone-300 transition duration-300">
+                        <i class="fab fa-whatsapp mr-3 w-4 text-center"></i>Douglas Almeida
+                    </a>
+                    <a href="mailto:douglasoalmeida@hotmail.com" class="flex items-center hover:text-stone-300 transition duration-300">
+                        <i class="fas fa-envelope mr-3 w-4 text-center"></i>douglasoalmeida@hotmail.com
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Fazenda+Sossego+Nepomuceno+MG" target="_blank" class="flex items-start hover:text-stone-300 transition duration-300">
+                        <i class="fas fa-map-marker-alt mr-3 mt-1 w-4 text-center"></i><span>Fazenda Sossego, Zona Rural<br><span class="ml-7">Nepomuceno/MG</span></span>
+                    </a>
+                </div>
+                <!-- Coluna 2: Mapa -->
+                <div>
+                     <h3 class="text-lg font-bold mb-4">Localização</h3>
+                     <div class="rounded-lg overflow-hidden h-48 shadow-md">
+                         <iframe 
+                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29731.33235478065!2d-45.26002268689574!3d-21.22891963242049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ff070a4a87751%3A0x6a089868a8a4e5d4!2sNepomuceno%2C%2C%nbsp;MG%2C%2037250-000!5e0!3m2!1spt-BR!2sbr!4v1678822824847!5m2!1spt-BR!2sbr" 
+                             width="100%" 
+                             height="100%" 
+                             style="border:0;" 
+                             allowfullscreen="" 
+                             loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade">
+                         </iframe>
+                     </div>
+                </div>
+                <!-- Coluna 3: Redes Sociais -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold">Siga-nos</h3>
+                    <a href="https://www.instagram.com/avesoliveiraovos" target="_blank" class="inline-flex items-center hover:text-stone-300 transition duration-300">
+                        <i class="fab fa-instagram fa-lg mr-3"></i> Instagram
+                    </a>
+                    <br>
+                    <a href="https://wa.me/5535999641010" target="_blank" class="inline-flex items-center hover:text-stone-300 transition duration-300">
+                        <i class="fab fa-whatsapp fa-lg mr-3"></i> WhatsApp
+                    </a>
+                    <br>
+                    <a href="https://g.co/kgs/32RsCVY" target="_blank" class="inline-flex items-center hover:text-stone-300 transition duration-300">
+                        <i class="fab fa-google fa-lg mr-3"></i> Avalie-nos no Google
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-stone-700 pt-6 text-center text-sm text-stone-400">
+                <p>&copy; 2024 Aves Oliveira. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5535999641010?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações." target="_blank" class="fixed bottom-5 right-5 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition duration-300 z-50">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <script>
+        // Função para abrir o WhatsApp
+        function consultarPreco(nomeDaAve) {
+            const numeroWhatsApp = '5535999641010';
+            const mensagem = `Olá, tenho interesse em comprar um(a) ${nomeDaAve}. Poderia me passar mais informações e o preço?`;
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lógica do Menu Mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mainNav = document.getElementById('main-nav');
+
+            function updateNavBackground() {
+                const isMenuOpen = !mobileMenu.classList.contains('hidden');
+                
+                mainNav.classList.remove('bg-black/60', 'bg-black/80', 'shadow-md');
+
+                if (isMenuOpen) {
+                    mainNav.classList.add('bg-black/80', 'shadow-md');
+                } else if (window.scrollY > 50) {
+                    mainNav.classList.add('bg-black/60', 'shadow-md');
+                }
+            }
+
+            window.addEventListener('scroll', updateNavBackground);
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('fa-bars');
+                menuIcon.classList.toggle('fa-times');
+                updateNavBackground(); 
+            });
+
+            document.querySelectorAll('#mobile-menu a, a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Fecha o menu mobile se estiver aberto
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                        updateNavBackground();
+                    }
+                });
+            });
+
+            // Configuração dos Carrosséis para Aves (Apenas Mobile)
+            const swiperBirdsOptions = {
+                loop: false,
+                slidesPerView: 1.25,
+                spaceBetween: 15,
+                freeMode: true, 
+                grabCursor: true,
+                // NOVAS OPÇÕES PARA MELHORAR A FLUIDEZ
+                freeModeMomentumRatio: 1.5,
+                freeModeMomentumVelocityRatio: 1.2,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            };
+
+            new Swiper('.pavoes-swiper', swiperBirdsOptions);
+            new Swiper('.aquaticos-swiper', swiperBirdsOptions);
+            new Swiper('.galinhas-swiper', swiperBirdsOptions);
+            
+        });
+    </script>
+
+</body>
+</html>
