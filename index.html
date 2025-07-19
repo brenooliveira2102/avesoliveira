@@ -20,18 +20,18 @@
     <meta property="og:url" content="URL_DO_SEU_SITE_AQUI" />
     <meta property="og:type" content="website" />
 
-    <!-- OTIMIZAÇÃO: Pré-carregamento de Recursos Críticos e Carregamento Assíncrono de CSS -->
+    <!-- OTIMIZAÇÃO: Pré-carregamento de Recursos Críticos -->
     <link rel="preload" as="image" href="1.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@700&display=swap"></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- OTIMIZAÇÃO: CSS do Swiper removido, pois o carrossel não é mais usado. -->
-    
+    <!-- Script do Tailwind CSS (movido para o head para carregamento prioritário) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
+        /* Estilos personalizados */
         html { scroll-behavior: smooth; }
         body { font-family: 'Roboto', sans-serif; color: #3e2723; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Lora', serif; }
@@ -48,7 +48,6 @@
     <nav id="main-nav" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300">
         <div class="container mx-auto px-6 py-2 flex justify-between items-center">
             <a href="#">
-                <!-- CORREÇÃO: Removido width e height fixos para evitar que a imagem achate. -->
                 <img src="logo.avif" alt="Logo Aves Oliveira" class="h-16 md:h-20 filter drop-shadow-lg" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/80x80/ffffff/3e2723?text=Logo';">
             </a>
             <div class="hidden md:flex space-x-8 text-lg text-white">
@@ -62,7 +61,7 @@
                 </button>
             </div>
         </div>
-        <!-- ATUALIZAÇÃO: Menu mobile com links diretos para as seções de aves. -->
+        <!-- Menu Mobile -->
         <div id="mobile-menu" class="w-full hidden md:hidden bg-black/80">
             <div class="text-center text-gray-400 pt-3 pb-1 text-sm uppercase">Nossas Aves</div>
             <a href="#aves-exoticas" class="block text-center text-white py-3 hover:bg-white/10 transition duration-300">Aves Exóticas</a>
@@ -86,16 +85,17 @@
     <!-- Container Principal para as Seções de Aves -->
     <div id="nossas-aves">
         
-        <!-- ATUALIZAÇÃO: Seção Aves Exóticas agora usa grid em todas as telas. ID adicionado para navegação. -->
+        <!-- Seção Aves Exóticas -->
         <section id="aves-exoticas" class="py-16 bg-stone-50">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-12 text-stone-800 px-6">Aves Exóticas</h2>
-                <!-- Carrossel removido. O grid agora é visível em todas as telas, começando com 1 coluna. -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaoazul.avif" alt="Pavão Azul" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Azul';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Azul</h3><p class="text-gray-600 mb-4 bird-card-text">Ave nativa do subcontinente indiano, famosa por sua cauda exuberante.</p><a href="#" onclick="consultarPreco('Pavão Azul')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavao branco.webp" alt="Pavão Branco" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Branco';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Branco</h3><p class="text-gray-600 mb-4 bird-card-text">Ave de origem indiana, a pureza e a elegância em forma de ave.</p><a href="#" onclick="consultarPreco('Pavão Branco')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavão Ombros Negros.webp" alt="Pavão Ombros Negros" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Ombros+Negros';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Ombros Negros</h3><p class="text-gray-600 mb-4 bird-card-text">Uma variação de cor deslumbrante do pavão azul.</p><a href="#" onclick="consultarPreco('Pavão Ombros Negros')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavoa arlequim.webp" alt="Pavoa Arlequim" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavoa+Arlequim';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavoa Arlequim</h3><p class="text-gray-600 mb-4 bird-card-text">Resultado de cruzamentos seletivos de pavão-azul e pavão-branco.</p><a href="#" onclick="consultarPreco('Pavão Arlequim')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <!-- CORREÇÃO: Removido loading="lazy" das primeiras imagens para carregamento imediato -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaoazul.avif" alt="Pavão Azul" class="w-full h-56 object-contain bg-stone-200" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Azul';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Azul</h3><p class="text-gray-600 mb-4 bird-card-text">Ave nativa do subcontinente indiano, famosa por sua cauda exuberante.</p><a href="#" onclick="consultarPreco('Pavão Azul')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavao branco.webp" alt="Pavão Branco" class="w-full h-56 object-contain bg-stone-200" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Branco';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Branco</h3><p class="text-gray-600 mb-4 bird-card-text">Ave de origem indiana, a pureza e a elegância em forma de ave.</p><a href="#" onclick="consultarPreco('Pavão Branco')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavão Ombros Negros.webp" alt="Pavão Ombros Negros" class="w-full h-56 object-contain bg-stone-200" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Ombros+Negros';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Ombros Negros</h3><p class="text-gray-600 mb-4 bird-card-text">Uma variação de cor deslumbrante do pavão azul.</p><a href="#" onclick="consultarPreco('Pavão Ombros Negros')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Pavoa arlequim.webp" alt="Pavoa Arlequim" class="w-full h-56 object-contain bg-stone-200" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavoa+Arlequim';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavoa Arlequim</h3><p class="text-gray-600 mb-4 bird-card-text">Resultado de cruzamentos seletivos de pavão-azul e pavão-branco.</p><a href="#" onclick="consultarPreco('Pavão Arlequim')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
+                    <!-- Imagens restantes com loading="lazy" -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaoverdedejava.avif" alt="Pavão Verde de Java" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Verde+de+Java';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Verde de Java</h3><p class="text-gray-600 mb-4 bird-card-text">Ave nativa do Sudeste Asiático, com plumagem verde-metálica.</p><a href="#" onclick="consultarPreco('Pavão Verde de Java')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pavaospalding.avif" alt="Pavão Spalding" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pavão+Spalding';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pavão Spalding</h3><p class="text-gray-600 mb-4 bird-card-text">Ave híbrida com beleza e características únicas.</p><a href="#" onclick="consultarPreco('Pavão Spalding')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="faisão canario.webp" alt="Faisão Canário" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Faisão+Canário';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Faisão Canário</h3><p class="text-gray-600 mb-4 bird-card-text">Ave ornamental de porte pequeno e beleza marcante.</p><a href="#" onclick="consultarPreco('Faisão Canário')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
@@ -103,7 +103,7 @@
             </div>
         </section>
 
-        <!-- ATUALIZAÇÃO: Seção Aquáticos agora usa grid em todas as telas. ID adicionado para navegação. -->
+        <!-- Seção Aquáticos -->
         <section id="aquaticos" class="py-16 bg-white">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-12 text-stone-800 px-6">Aquáticos</h2>
@@ -120,7 +120,7 @@
             </div>
         </section>
 
-        <!-- ATUALIZAÇÃO: Seção Galinhas agora usa grid em todas as telas. ID adicionado para navegação. -->
+        <!-- Seção Galinhas, Perus e Pintinhos -->
         <section id="galinhas-perus-pintinhos" class="py-16 bg-stone-50">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-12 text-stone-800 px-6">Galinhas, Perus e Pintinhos</h2>
@@ -134,7 +134,6 @@
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhaGSB.avif" alt="Galinha GSB" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+GSB';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha GSB</h3><p class="text-gray-600 mb-4 bird-card-text">É uma raça rústica, originária do sertão nordestino.</p><a href="#" onclick="consultarPreco('Galinha GSB')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="galinhamilflores.avif" alt="Galinha Mil Flores" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Galinha+Mil+Flores';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Galinha Mil Flores</h3><p class="text-gray-600 mb-4 bird-card-text">Originária da Bélgica, com uma plumagem incrivelmente detalhada.</p><a href="#" onclick="consultarPreco('Galinha Mil Flores')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="Peru Caipira Adulto.webp" alt="Peru" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Peru';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Peru</h3><p class="text-gray-600 mb-4 bird-card-text">Espécie nativa da América do Norte, robusta e criada de forma natural.</p><a href="#" onclick="consultarPreco('Peru')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
-                    <!-- ATUALIZAÇÃO: Novo card adicionado -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 bird-card"><img src="pintinhos.avif" alt="Pintinhos" class="w-full h-56 object-contain bg-stone-200" loading="lazy" decoding="async" width="400" height="224" onerror="this.onerror=null;this.src='https://placehold.co/400x224/e7e5e4/3e2723?text=Pintinhos';"><div class="p-6 bird-card-content"><h3 class="text-xl font-bold mb-2">Pintinhos</h3><p class="text-gray-600 mb-4 bird-card-text">Pintinhos caipiras de diversas raças disponíveis. Consulte-nos sobre a disponibilidade e idades.</p><a href="#" onclick="consultarPreco('Pintinhos')" class="mt-auto w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"><i class="fab fa-whatsapp"></i> Consultar Preço</a></div></div>
                 </div>
             </div>
@@ -248,10 +247,8 @@
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
 
-    <!-- OTIMIZAÇÃO: Scripts do Swiper removidos. Script do Tailwind mantido com 'defer'. -->
-    <script src="https://cdn.tailwindcss.com" defer></script> 
-
     <script>
+        // Função para abrir o WhatsApp com uma mensagem pré-definida
         function consultarPreco(nomeDaAve) {
             const numeroWhatsApp = '5535999641010';
             const mensagem = `Olá, tenho interesse em comprar um(a) ${nomeDaAve}. Poderia me passar mais informações e o preço?`;
@@ -259,14 +256,17 @@
             window.open(url, '_blank');
         }
 
+        // Adiciona os listeners de evento quando o DOM estiver pronto
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
             const mainNav = document.getElementById('main-nav');
 
+            // Função para atualizar o fundo da barra de navegação com base no scroll e no estado do menu
             function updateNavBackground() {
                 const isMenuOpen = !mobileMenu.classList.contains('hidden');
+                // Limpa as classes de fundo antes de adicionar a correta
                 mainNav.classList.remove('bg-black/60', 'bg-black/80', 'shadow-md');
                 if (isMenuOpen) {
                     mainNav.classList.add('bg-black/80', 'shadow-md');
@@ -275,8 +275,10 @@
                 }
             }
 
+            // Ouve o evento de scroll para atualizar a navegação
             window.addEventListener('scroll', updateNavBackground, { passive: true });
 
+            // Alterna a visibilidade do menu mobile ao clicar no botão
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
                 menuIcon.classList.toggle('fa-bars');
@@ -284,7 +286,7 @@
                 updateNavBackground();
             });
 
-            // A lógica de fechar o menu agora funciona com os novos links.
+            // Fecha o menu mobile ao clicar em um link
             document.querySelectorAll('#mobile-menu a, nav a[href^="#"]').forEach(link => {
                 link.addEventListener('click', () => {
                     if (!mobileMenu.classList.contains('hidden')) {
@@ -295,8 +297,6 @@
                     }
                 });
             });
-
-            // OTIMIZAÇÃO: Todo o código de inicialização do Swiper foi removido.
         });
     </script>
 
