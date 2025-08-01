@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- URL Principal do seu site de página única -->
+  <url>
+    <loc>https://avesoliveira.com.br/</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Informando ao Google sobre as imagens importantes na sua página -->
+    <image:image>
+      <image:loc>https://avesoliveira.com.br/logo.avif</image:loc>
+      <image:title>Logo Aves Oliveira</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://avesoliveira.com.br/1.webp</image:loc>
+      <image:title>Aves Oliveira - Criação de aves exóticas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://avesoliveira.com.br/pavaoazul.avif</image:loc>
+      <image:title>Pavão Azul à venda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://avesoliveira.com.br/Cisne%20negro.webp</image:loc>
+      <image:title>Cisne Negro à venda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://avesoliveira.com.br/galinhasedosa.avif</image:loc>
+      <image:title>Galinha Sedosa à venda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://avesoliveira.com.br/placa.webp</image:loc>
+      <image:title>Placa da Fazenda Aves Oliveira em Nepomuceno/MG</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://avesoliveira.com.br/ovoscaipiras.avif</image:loc>
+      <image:title>Venda de Ovos Caipiras</image:title>
+    </image:image>
+  </url>
+
+</urlset>
